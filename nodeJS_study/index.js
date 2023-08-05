@@ -50,6 +50,22 @@ app.post('/user/:id', (req, res) => {
     res.send({"message" : "Hello World"})
 })
 
+app.get('/sound/:name', (req, res) => {
+    const {name} = req.params
+    console.log(name)
+
+    if (name == "dog"){
+        res.json({"sound" : "멍멍"})
+    }
+    else if (name == "cat"){
+        res.json({"sound" : "야옹"})
+    }
+    else {
+        res.json({"sound" : "알수없음"})
+    }
+
+})
+
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })
