@@ -1,6 +1,8 @@
 var express = require('express');
 var app = express();
 
+let comments = [];
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -11,7 +13,7 @@ app.set('view engine', 'ejs');
 
 // index page
 app.get('/', function (req, res) {
-    res.render('index');
+    res.render('index', {comments : comments});
 });
 
 app.get('/create', function (req, res) {
@@ -21,7 +23,14 @@ app.get('/create', function (req, res) {
 
 app.post('/createpost', function (req, res) {
     console.log(req.body);
-    res.send('POST success');
+
+    const { post_content } = req.body;
+
+    comments.push(post_content);
+
+    console.log(comments);
+
+    res.redirect('/');
 });
 
 app.listen(8080);

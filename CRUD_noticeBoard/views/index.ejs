@@ -6,12 +6,17 @@
     <title>index</title>
 </head>
 <body>
-    <form action="/create" method="get">
+    <h1>댓글</h1>
+    <% for (comment of comments) {%>
+        <li><%= comment %></li>
+    <% } %>
+    <hr>
+    <!-- <form action="/create" method="get">
         <label for="get_name">GET</label>
         <input type="text" id="get_name" name="get_content"><br>
         <input type="submit" value="Submit">
     </form>
-    <br><br>
+    <br><br> -->
     <form action="/createpost" method="post">
         <label for="post_name">POST</label>
         <input type="text" id="post_name" name="post_content"><br>
