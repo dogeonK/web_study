@@ -13,6 +13,9 @@
         <input type="text" id="post_name" name="post_content">
         <input type="submit" value="댓글 수정">
         </form>
+        <form action="/delete/<%= comment.id %>" method="get">
+            <input type="submit" value="댓글 삭제">
+        </form>
     <% } %>
     <hr>
     <!-- <form action="/create" method="get">
