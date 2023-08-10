@@ -56,5 +56,20 @@ app.post('/createpost', async function (req, res) {
     res.redirect('/');
 });
 
+app.post('/update/:id', async function (req, res) {
+    console.log(req.body);
+
+    const { id } = req.params;
+    const { post_content } = req.body;
+
+    await Comments.update({ content : post_content }, {
+        where: {
+            id : id
+        }
+    });
+
+    res.redirect('/');
+});
+
 app.listen(8080);
 console.log('Server is listening on port 8080');

@@ -9,6 +9,10 @@
     <h1>댓글</h1>
     <% for (comment of comments) {%>
         <li><%= comment.content %></li>
+        <form action="/update/<%= comment.id %>" method="post">
+        <input type="text" id="post_name" name="post_content">
+        <input type="submit" value="댓글 수정">
+        </form>
     <% } %>
     <hr>
     <!-- <form action="/create" method="get">
@@ -18,8 +22,8 @@
     </form>
     <br><br> -->
     <form action="/createpost" method="post">
-        <label for="post_name">댓글</label>
-        <input type="text" id="post_name" name="post_content"><br>
+        <label for="post_name">댓글 작성</label><br>
+        <input type="text" id="post_name" name="post_content">
         <input type="submit" value="Submit">
     </form>
 </body>
